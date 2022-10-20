@@ -1,0 +1,79 @@
+import java.util.Scanner;
+public class Exercise_1 {
+ public static void main(String[] args) {
+  System.out.println("Jane Doe");
+ }
+}
+public class exercise_2 {
+    public static void main(String[] args) {
+        System.out.print('Hello world!');
+        System.out.print('(And all the people of the world)')
+        
+}
+
+
+public class exercise_3 {
+    public static void main(String[] args) {
+        int seconds_in_a_year = 60 * 60 * 24 * 365
+        System.out.println('There are ' + seconds_in_a_year + ' in a year')
+        
+    }
+    
+}
+
+
+
+
+public class Exercise_4 {
+ 
+ public static int main(String[] args) {
+  Scanner input = new Scanner();
+  int x = input.nextInt(); 
+  int y = input.nexttInt(); 
+  return x+y;
+  
+ }
+ 
+}
+public class exercise_5
+{
+    public static void main(String[] args) 
+    {
+        Scanner input = new Scanner(); 
+        int x = input.nextInt();
+        if(x > 0)
+        {
+            System.out.println(x+" is a positive number");
+        }
+        else if(x < 0)
+        {
+            System.out.println(number+" is a negative number");
+        }
+        else
+        {
+            System.out.println(number+" is neither positive nor negative");
+        }
+    }
+}
+
+public class exercise_6
+{
+    public static void main(String[] args) 
+    {
+        Scanner input = new Scanner(); 
+        int x = input.nextInt();
+        int y = input.nextInt();
+        if(x > y)
+        {
+            System.out.println("Greater number "+x);
+        }
+        else if(x < y)
+        {
+            System.out.println(y+" Greater number");
+        }
+        else
+        {
+            System.out.println("Numbers are equal");
+        }
+    }
+}
