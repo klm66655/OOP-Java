@@ -1,0 +1,199 @@
+class HelloWorld {
+    public static void double average(int number1,int number2,int number3,int number4){
+        
+        double sum =  (number1+number+number3+number4);
+        return sum/4;
+}
+    public static void main(String[] args) {
+        double answer = average(4,2,6,1);
+        System.err.println("Average " +answer);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package week3;
+import java.util.Scanner;
+public class Exercise3 {
+    public static void main(String[] args) {
+        Scanner reader = new Scanner(System.in);
+        System.err.println("Please enter the first word");
+	
+        
+    }
+}
+
+ public static void main (String[] args) {
+        
+        String str= "Geeks", nstr="";
+        char ch;
+        
+      System.out.print("Original word: ");
+      System.out.println("Geeks"); //Example word
+        
+      for (int i=0; i<str.length(); i++)
+      {
+        ch= str.charAt(i); //extracts each character
+        nstr= ch+nstr; //adds each character in front of the existing string
+      }
+      System.out.println("Reversed word: "+ nstr);
+    }
+}
+
+import java.util.Scanner;
+public class Exercise4 { 
+public static void main (String[] args) {
+
+        
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Enter the number");
+        String word = reader.nextLine();
+        char ch;
+        String nstr; 
+
+        
+      for (int i=0; i<str.length(); i++)
+      {
+        ch= str.charAt(i); 
+        nstr= ch+nstr; 
+      }
+      System.out.println("Reversed word: "+ nstr);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+package week3;
+import.java.util.Scanner;
+public class Exercise5 {
+       public static void main(String args[]) {
+
+       String word = "Hello World";
+     
+       
+       if(word.indexOf("World") != -1){
+           System.err.printnl("Yes " +string  "contains
+                  word World " , word);
+       }else{
+           System.err.printf("Sorry %s does not contains
+                 word 'World' %n " , word);
+       }
+     
+       //contains method return boolean true if String
+      // contains the specified word
+       if(word.contains("Hello")){
+           System.err.printf("Great '%s' contains
+             word 'Hello' %n" , word);
+       }else{
+           System.err.printf("Sorry %s does not
+             contains word 'Hello' %n" , word);
+       }
+     
+    }
+}
+
+
+
+
+
+
+package week3;
+import java.util.Scanner;
+public class Exercise6 {
+    public static void main(String[] args) {
+        Scanner reader = new Scanner(System.in);
+        System.err.println("Please enter first word");
+        String first = reader.nextLine();
+        System.out.println("Please enter second word");
+        String second = reader.nextLine();
+        if(first.indexOf(second)==-1){
+            System.err.println("The word is not found ")
+        
+        }else{
+            System.out.println("The word is FOUND");
+        }
+        }
+        
+    }
+}
+
+
+package week3;
+import java.util.Scanner;
+public class Exercise7 {
+    public static ArrayList<Integer> lenghts(ArrayList<String> list){
+        for(String name : list){
+            name.length();
+            listInteger.add(name.length());
+            
+        }
+        return listInteger;
+    }
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList();
+        list.add("one");
+        list.add("five");
+        list.add("zero");
+        System.out.println("the length of the Strings" +lengths(list));
+        
+        }
+        
+    }
+}
+
+
+
+package week3;
+import java.util.Scanner;
+public class Exercise 8 {
+public static boolean isPalindrome(String str)
+    {
+        String rev = "";
+        boolean ans = false;
+        for (int i = str.length() - 1; i >= 0; i--) {
+            rev = rev + str.charAt(i);
+        }
+
+        if (str.equals(rev)) {
+            ans = true;
+        }
+        return ans;
+    }
+    public static void main(String[] args)
+    {
+        
+        String str = "geeks";
+ 
+        
+        str = str.toLowerCase();
+        boolean A = isPalindrome(str);
+        System.out.println(A);
+    }
+}
+
+
+
+
+
+	
