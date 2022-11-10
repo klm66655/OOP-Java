@@ -1,0 +1,152 @@
+package lab4;
+
+import java.util.*; 
+
+public class excercise1 {
+
+	public static void main(String[] args) {
+	
+		ArrayList<Integer> list1 = new ArrayList<Integer>();
+		ArrayList<Integer> list2 = new ArrayList<Integer>();
+
+		list1.add(4);
+		list1.add(3);
+
+		list2.add(5);
+		list2.add(10);
+		list2.add(7);
+
+		combine(list1, list2);
+
+		System.out.println(list1);
+
+		System.out.println(list2);
+	}
+	
+	public static void combine(ArrayList<Integer> first, ArrayList<Integer> second) {
+		first.addAll(second);
+	} 
+
+}
+
+
+
+
+
+
+package lab4;
+
+import java.util.Random; 
+
+public class Dice {
+
+	private int numberOfSides; 
+	private Random random; 
+	
+	public Dice(int numberOfSides) {
+		this.numberOfSides = numberOfSides;
+		random = new Random();
+	}
+	
+	 public int roll() {
+		 return random.nextInt(numberOfSides) + 1;
+   }
+}
+
+
+
+
+
+
+package lab4;
+
+public class LyrraCard {
+
+	private double balance;
+	
+	public LyrraCard(double balanceAtStart) {
+		this.balance = balanceAtStart;
+				}
+
+	public String toString() {
+		return "The card has " + this.balance + " euros";
+		}
+	
+	
+	 public void payEconomical() {
+	        if(this.balance >= 2.50) {
+	        	this.balance -= 2.50;
+	        	}
+	        } 
+
+    public void payGourmet() {
+        if(this.balance >= 4.00) {
+        	this.balance -= 4.00;
+        	}
+        }
+    
+    public void loadMoney(double amount) {
+        if(amount > 0) {
+        	if((this.balance + amount) > 150) {
+        		this.balance = 150;
+        		} else {
+        			this.balance += amount;
+        		}
+        	}
+        }
+    }
+
+
+
+
+
+
+package lab4;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Dice dice = new Dice(6);
+		
+		
+        LyrraCard card = new LyrraCard(10);
+        
+        
+        LyrraCard cardPekka = new LyrraCard(20);
+        LyrraCard cardBrian = new LyrraCard(30);
+        
+        
+        cardPekka.payGourmet(); 
+        cardBrian.payEconomical();
+        
+        
+        System.out.println("Pekka: " + cardPekka);
+        System.out.println("Brian: " + cardBrian);
+        
+        
+        cardPekka.loadMoney(20);
+        cardBrian.payGourmet(); 
+        
+        
+        System.out.println("Pekka: " + cardPekka);
+        System.out.println("Brian: " + cardBrian);
+        
+        
+        cardPekka.payEconomical();
+        cardPekka.payEconomical();
+        cardBrian.loadMoney(50);
+        
+        
+        System.out.println("Pekka: " + cardPekka);
+        System.out.println("Brian: " + cardBrian);
+
+	}
+}
+
+
+
+
+
+
+
