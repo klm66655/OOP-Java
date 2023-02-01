@@ -1,0 +1,399 @@
+1.
+import java.util.HashMap;
+
+public class Main {
+public static void main(String[] args) {
+HashMap<String, String> nicknames = new HashMap<>();
+    nicknames.put("matti", "mage");
+    nicknames.put("mikael", "mixu");
+    nicknames.put("arto", "arppa");
+
+    System.out.println("Mikael's nickname: " + nicknames.get("mikael"));
+}
+
+
+2.
+
+import java.util.HashMap;
+
+public class PromissoryNote {
+private HashMap<String, Double> loans;
+public PromissoryNote() {
+    this.loans = new HashMap<>();
+}
+
+public void setLoan(String toWhom, double value) {
+    this.loans.put(toWhom, value);
+}
+
+public double howMuchIsTheDebt(String whose) {
+    if (this.loans.containsKey(whose)) {
+        return this.loans.get(whose);
+    }
+
+    return 0;
+}
+
+
+
+
+import java.util.HashMap;
+
+public class PromissoryNote {
+    private HashMap<String, Double> loans;
+
+    public PromissoryNote() {
+        loans = new HashMap<>();
+    }
+
+    public void setLoan(String toWhom, double value) {
+        loans.put(toWhom, value);
+    }
+
+    public double howMuchIsTheDebt(String whose) {
+        if (loans.containsKey(whose)) {
+            return loans.get(whose);
+        } else {
+            return 0;
+        }
+    }
+}
+
+
+
+3. import java.util.HashMap;
+import java.util.ArrayList;
+
+public class Dictionary {
+    private HashMap<String, String> dictionary;
+
+    public Dictionary() {
+        this.dictionary = new HashMap<>();
+    }
+
+    public String translate(String word) {
+        return dictionary.get(word);
+    }
+
+    public void add(String word, String translation) {
+        dictionary.put(word, translation);
+    }
+
+    public int amountOfWords() {
+        return dictionary.size();
+    }
+
+    public ArrayList<String> translationList() {
+        ArrayList<String> translations = new ArrayList<>();
+        for (String key : dictionary.keySet()) {
+            translations.add(key + " = " + dictionary.get(key));
+        }
+        return translations;
+    }
+}
+
+
+import java.util.Scanner;
+
+public class TextUserInterface {
+    private Scanner reader;
+    private Dictionary dictionary;
+
+    public TextUserInterface(Scanner reader, Dictionary dictionary) {
+        this.reader = reader;
+        this.dictionary = dictionary;
+    }
+
+    public void start() {
+        while (true) {
+            System.out.print("Statement: ");
+            String input = reader.nextLine();
+
+            if (input.equals("quit")) {
+                System.out.println("Cheers!");
+                break;
+            } else if (input.equals("add")) {
+                System.out.print("In Finnish: ");
+                String word = reader.nextLine();
+                System.out.print("Translation: ");
+                String translation = reader.nextLine();
+                dictionary.add(word, translation);
+            } else if (input.equals("translate")) {
+                System.out.print("Give a word: ");
+                String word = reader.nextLine();
+                String translation = dictionary.translate(word);
+                if (translation == null) {
+                    System.out.println("Unknown word");
+                } else {
+                    System.out.println("Translation: " + translation);
+                }
+            } else {
+                System.out.println("Unknown statement");
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+Dictionary dictionary = new Dictionary();
+Scanner reader = new Scanner(System.in);
+
+TextUserInterface ui = new TextUserInterface(reader, dictionary);
+ui.start();
+
+
+
+
+
+
+
+
+
+
+Additional Tasks
+
+
+1.
+class Counter {
+  private int max;
+  private int count;
+  private boolean overflow;
+
+  public Counter(int max) {
+    this.max = max;
+    this.count = 0;
+    this.overflow = false;
+  }
+
+  public void reset() {
+    count = 0;
+    overflow = false;
+  }
+
+  public void incr1() {
+    if (count + 1 <= max) {
+      count++;
+    } else {
+      overflow = true;
+    }
+  }
+
+  public void incr10() {
+    if (count + 10 <= max) {
+      count += 10;
+    } else {
+      overflow = true;
+    }
+  }
+
+  public void incr100() {
+    if (count + 100 <= max) {
+      count += 100;
+    } else {
+      overflow = true;
+    }
+  }
+
+  public void incr1000() {
+    if (count + 1000 <= max) {
+      count += 1000;
+    } else {
+      overflow = true;
+    }
+  }
+
+  public boolean overflow() {
+    return overflow;
+  }
+}
+
+
+Counter counter = new Counter(9999);
+
+counter.incr1();
+counter.incr10();
+counter.incr100();
+counter.incr1000();
+
+System.out.println("Count: " + counter.count);
+System.out.println("Overflow: " + counter.overflow());
+
+counter.reset();
+
+System.out.println("Count: " + counter.count);
+System.out.println("Overflow: " + counter.overflow());
+
+
+2.
+
+public class Month {
+  private int monthNumber;
+  private final static String[] monthNames = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                                               "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+
+  // constructor to set the month using an integer
+  public Month(int monthNumber) {
+    if (monthNumber >= 1 && monthNumber <= 12) {
+      this.monthNumber = monthNumber;
+    } else {
+      System.out.println("Invalid month number. Setting to January (1).");
+      this.monthNumber = 1;
+    }
+  }
+
+  // constructor to set the month using the first three letters in the name of the month
+  public Month(String monthName) {
+    for (int i = 0; i < 12; i++) {
+      if (monthName.equalsIgnoreCase(monthNames[i])) {
+        monthNumber = i + 1;
+        break;
+      }
+    }
+  }
+
+  // default constructor
+  public Month() {
+    monthNumber = 1;
+  }
+
+  // input function that reads the month as an integer
+  public void inputMonthNumber(int monthNumber) {
+    if (monthNumber >= 1 && monthNumber <= 12) {
+      this.monthNumber = monthNumber;
+    } else {
+      System.out.println("Invalid month number. Setting to January (1).");
+      this.monthNumber = 1;
+    }
+  }
+
+  // input function that reads the month as the first three letters in the name of the month
+  public void inputMonthName(String monthName) {
+    for (int i = 0; i < 12; i++) {
+      if (monthName.equalsIgnoreCase(monthNames[i])) {
+        monthNumber = i + 1;
+        break;
+      }
+    }
+  }
+
+  // output function that outputs the month as an integer
+  public int getMonthNumber() {
+    return monthNumber;
+  }
+
+  // output function that outputs the month as the first three letters in the name of the month
+  public String getMonthName() {
+    return monthNames[monthNumber - 1];
+  }
+
+  // member function that returns the next month as a value of type Month
+  public Month nextMonth() {
+    if (monthNumber == 12) {
+      return new Month(1);
+    } else {
+      return new Month(monthNumber + 1);
+    }
+  }
+}
+
+
+import java.util.Scanner;
+
+public class MonthTest {
+  public static void main(String[] args) {
+    Month january = new Month(1);
+    Month february = new Month("Feb");
+
+    System.out.println("January: " + january.getMonthNumber() + " " + january.getMonthName());
+    System.out.println("February: " + february.getMonthNumber() + " " + february.getMonthName());
+
+    Scanner input = new Scanner(System.in);
+    System.out.print("Enter the month number: ");
+    int monthNumber = input.nextInt();
+    Month month = new
+
+
+3.
+
+import java.util.Scanner;
+
+public class Month {
+    private char[] name;
+    private static final String[] MONTHS = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+
+    // Constructor to set the month using the first three letters in the name of the month
+    public Month(char a, char b, char c) {
+        name = new char[]{a, b, c};
+    }
+
+    // Constructor to set the month using an integer as an argument
+    public Month(int monthNumber) {
+        name = MONTHS[monthNumber - 1].toCharArray();
+    }
+
+    // Default constructor
+    public Month() {
+        name = MONTHS[0].toCharArray();
+    }
+
+    // Input function that reads the month as an integer
+    public void inputMonthNumber(Scanner scan) {
+        int monthNumber = scan.nextInt();
+        name = MONTHS[monthNumber - 1].toCharArray();
+    }
+
+    // Input function that reads the month as the first three letters in the name of the month
+    public void inputMonthName(Scanner scan) {
+        String monthName = scan.next();
+        name = monthName.toCharArray();
+    }
+
+    // Output function that outputs the month as an integer
+    public int getMonthNumber() {
+        for (int i = 0; i < MONTHS.length; i++) {
+            if (MONTHS[i].equals(String.valueOf(name))) {
+                return i + 1;
+            }
+        }
+        return -1;
+    }
+
+    // Output function that outputs the month as the first three letters in the name of the month
+    public String getMonthName() {
+        return String.valueOf(name);
+    }
+
+    // Member function that returns the next month as a value of type Month
+    public Month nextMonth() {
+        int currentMonth = getMonthNumber();
+        if (currentMonth == 12) {
+            return new Month(1);
+        } else {
+            return new Month(currentMonth + 1);
+        }
+    }
+}
+
+public class MonthTest {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        Month currentMonth = new Month();
+
+        System.out.println("Enter the month as a number: ");
+        currentMonth.inputMonthNumber(scan);
+        System.out.println("Month as number: " + currentMonth.getMonthNumber());
+        System.out.println("Month as name: " + currentMonth.getMonthName());
+
+        Month nextMonth = currentMonth.nextMonth();
+        System.out.println("Next month as number: " + nextMonth.getMonthNumber());
+        System.out.println("Next month as name: " + nextMonth.getMonthName());
+    }
+}
+
