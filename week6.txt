@@ -1,0 +1,65 @@
+1.
+
+public static int smallest(int[] array) {
+    int smallest = array[0];
+    for (int i = 1; i < array.length; i++) {
+        if (array[i] < smallest) {
+            smallest = array[i];
+        }
+    }
+    return smallest;
+}
+
+2.
+
+public static int indexOfTheSmallest(int[] array) {
+   int smallest = Integer.MAX_VALUE;
+   int index = 0;
+   for (int i = 0; i < array.length; i++) {
+      if (array[i] < smallest) {
+         smallest = array[i];
+         index = i;
+      }
+   }
+   return index;
+}
+
+
+
+
+
+
+
+
+
+public NightSky(double density) {
+    this.density = density;
+    this.width = 20;
+    this.height = 10;
+    this.random = new Random();
+}
+
+public NightSky(int width, int height) {
+    this.density = 0.1;
+    this.width = width;
+    this.height = height;
+    this.random = new Random();
+}
+
+public NightSky(double density, int width, int height) {
+    this.density = density;
+    this.width = width;
+    this.height = height;
+    this.random = new Random();
+}
+
+public void printLine() {
+    for (int i = 0; i < this.width; i++) {
+        if (this.random.nextDouble() <= this.density) {
+            System.out.print("*");
+        } else {
+            System.out.print(" ");
+        }
+    }
+    System.out.println();
+}
